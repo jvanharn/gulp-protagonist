@@ -15,19 +15,17 @@ module.exports = function (options) {
 		}
 
 		if (file.isStream()) {
-			return this.emit('error', new PluginError('gulp-snowcrash',  'Streaming not supported'));
+			return this.emit('error', new PluginError('gulp-protagonist',  'Streaming not supported'));
 		}
 
 		var self = this;
 
 		protagonist.parse(file.contents.toString(), function (error, result) {
-
 			if (error) {
-				return cb(new PluginError('gulp-snowcrash', error));
+				return cb(new PluginError('gulp-protagonist', error));
 			}
 
 			try {
-
 				var newfile = new gutil.File({
 					base: file.base,
 					cwd: file.cwd,
@@ -38,14 +36,9 @@ module.exports = function (options) {
 				self.push(newfile);
 
 				cb();
-
 			} catch (e) {
-
-				cb(new PluginError('gulp-snowcrash', e));
-
+				cb(new PluginError('gulp-protagonist', e));
 			}
-
 		});
 	});
 };
-

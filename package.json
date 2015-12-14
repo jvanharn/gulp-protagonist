@@ -1,27 +1,29 @@
 {
-  "name": "gulp-snowcrash",
-  "version": "0.0.3",
-  "description": "Gulp snowcrash to create documentation with API Blueprint",
+  "name": "gulp-protagonist",
+  "version": "0.1.0",
+  "description": "Gulp plugin to create documentation with API Blueprint",
   "license": "MIT",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/4yopping/gulp-snowcrash"
+    "url": "https://github.com/jvanharn/gulp-protagonist"
   },
   "keywords": [
     "gulp",
     "snowcrash",
+    "protagonist",
+    "mson",
     "api",
     "blueprint"
   ],
   "author": "Marco Godínez <markotom@gmail.com>",
   "bugs": {
-    "url": "https://github.com/4yopping/gulp-snowcrash/issues"
+    "url": "https://github.com/jvanharn/gulp-protagonist/issues"
   },
-  "homepage": "https://github.com/4yopping/gulp-snowcrash",
+  "homepage": "https://github.com/jvanharn/gulp-protagonist",
   "dependencies": {
     "gulp-util": "^3.0.3",
-    "protagonist": "^1.2.0",
+    "protagonist": "^1.2.1",
     "through2": "^2.0.0"
   }
 }

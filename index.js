@@ -7,7 +7,7 @@ var protagonist = require('protagonist');
 
 
 module.exports = function (options) {
-	options = options || {};
+	options = options || { type: 'refract' };
 
 	return through.obj(function (file, enc, cb) {
 		if (file.isNull()) {
@@ -20,7 +20,7 @@ module.exports = function (options) {
 
 		var self = this;
 
-		protagonist.parse(file.contents.toString(), function (error, result) {
+		protagonist.parse(file.contents.toString(), { type: options.type }, function (error, result) {
 			if (error) {
 				return cb(new PluginError('gulp-protagonist', error));
 			}
@@ -29,7 +29,7 @@ module.exports = function (options) {
 				var newfile = new gutil.File({
 					base: file.base,
 					cwd: file.cwd,
-					path: gutil.replaceExtension(file.path, '.' + options.format),
+					path: gutil.replaceExtension(file.path, '.' + (options.format || 'json')),
 					contents: new Buffer(JSON.stringify(result, null, 2))
 				});
 

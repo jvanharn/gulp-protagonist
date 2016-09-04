@@ -22,7 +22,7 @@ module.exports = function (options) {
 
 		protagonist.parse(file.contents.toString(), { type: options.type }, function (error, result) {
 			if (error) {
-				return cb(new PluginError('gulp-protagonist', error));
+				return cb(new PluginError('gulp-protagonist', '(' + file.path + ') ' + error.message));
 			}
 
 			try {
@@ -37,7 +37,7 @@ module.exports = function (options) {
 
 				cb();
 			} catch (e) {
-				cb(new PluginError('gulp-protagonist', e));
+				cb(new PluginError('gulp-protagonist', '(' + file.path + ') ' + e.message));
 			}
 		});
 	});
